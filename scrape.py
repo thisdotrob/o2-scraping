@@ -3,13 +3,6 @@ from selenium.webdriver.common.keys import Keys
 
 ENTRY_PAGE_URL = "http://international.o2.co.uk/internationaltariffs/calling_abroad_from_uk"
 
-def get_title():
-    driver = webdriver.Chrome()
-    driver.get(ENTRY_PAGE_URL)
-    title = driver.title
-    driver.quit()
-    return title
-
 def get_landline_rate(country):
     driver = webdriver.Chrome()
     driver.implicitly_wait(5)
