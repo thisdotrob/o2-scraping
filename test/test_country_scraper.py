@@ -1,5 +1,5 @@
 from unittest import TestCase
-from scrape import CountryScraper
+from country_scraper import CountryScraper
 
 class ScrapeTest(TestCase):
     def test_retrieving_landline_rate(self):
