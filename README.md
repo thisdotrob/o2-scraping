@@ -13,4 +13,10 @@ This project uses [pipenv](http://docs.pipenv.org/en/latest/), enter the followi
 ```shell
 $ pipenv install
 $ pipenv shell
+$ python app "Canada" "Germany" "Iceland" "Pakistan" "Singapore" "South Africa"
+```
+
+To run the tests, use:
+```shell
+$ python -m unittest -v
 ```
