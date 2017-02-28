@@ -9,3 +9,7 @@ class ScrapeTest(TestCase):
         pakistan_landline_rate = pakistan_scraper.get_landline_rate()
         self.assertEqual(canada_landline_rate, "£1.50")
         self.assertEqual(pakistan_landline_rate, "£2.00")
+
+    def test_retrieving_invalid_country_name(self):
+        invalid_scraper = CountryScraper("Not_a_valid_country_name")
+        self.assertRaises(ValueError, invalid_scraper.get_landline_rate)

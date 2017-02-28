@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from elements import ElementIds
 
 ENTRY_PAGE_URL = "http://international.o2.co.uk/internationaltariffs/calling_abroad_from_uk"
+INVALID_COUNTRY_MSG = "Please enter a valid country name"
 TIMEOUT_SECS = 5
 
 class CountryScraper:
@@ -26,6 +27,9 @@ class CountryScraper:
     def _select_country(self):
         country_input = self.driver.find_element_by_id(ElementIds.COUNTRY_INPUT)
         country_input.send_keys(self.country + Keys.RETURN)
+        displayed_text = country_input.get_attribute('value')
+        if displayed_text == INVALID_COUNTRY_MSG:
+            raise ValueError
 
     def _select_pay_monthly(self):
         pay_monthly_button = self.driver.find_element_by_id(ElementIds.PAY_MONTHLY_BUTTON)
